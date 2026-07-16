@@ -67,7 +67,7 @@ export default function HeroBanner() {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6 lg:mt-16 lg:gap-10">
+          <div className="mt-8 flex flex-col items-start gap-4 rtl:items-end sm:flex-row sm:flex-wrap sm:items-center sm:justify-start rtl:sm:justify-end sm:gap-6 lg:mt-16 lg:gap-10">
             <div
               onClick={handleGetStarted}
               role="button"
@@ -75,7 +75,11 @@ export default function HeroBanner() {
               onKeyDown={(e) => e.key === "Enter" && handleGetStarted()}
               className="flex cursor-pointer flex-row px-0 ltr:flex-row rtl:flex-row-reverse sm:px-2 lg:px-5"
             >
-              <Button type="button" variant="default" onClick={handleGetStarted}>
+              <Button
+                type="button"
+                variant="default"
+                onClick={handleGetStarted}
+              >
                 {t("get-started")}
               </Button>
               <img

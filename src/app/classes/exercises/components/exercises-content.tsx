@@ -54,9 +54,9 @@ export default function ExercisesContent({
   }, [exercises, selectedExerciseId]);
 
   return (
-    <div className="grid grid-cols-12 gap-6">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
       {/* // Sidebar  */}
-      <div className="col-span-3">
+      <div className="lg:col-span-3">
         <ExercisesSidebar
           locale={locale}
           selectedLevelId={difficultyLevelId}
@@ -70,7 +70,7 @@ export default function ExercisesContent({
       </div>
 
       {/* // Iframe & Recommendations */}
-      <div className="col-span-9">
+      <div className="lg:col-span-9">
         <div>
           {isLoading ? (
             <div className="h-130 animate-pulse rounded-4xl bg-white/5" />

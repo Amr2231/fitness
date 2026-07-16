@@ -2,11 +2,12 @@ import { useMutation } from "@tanstack/react-query";
 import type { ResetPasswordStepFields } from "../types/forgot-password";
 import { toast } from "sonner";
 import { resetPasswordAction } from "../actions/auth.action";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function useResetPassword() {
   // navigation
   const navigate = useNavigate();
+  const { locale } = useParams();
 
   // mutation
   const { mutate, isPending, error } = useMutation({
@@ -26,7 +27,7 @@ export default function useResetPassword() {
       // show success message
       toast.success("Successful Reset New Password");
       // navagate to login page
-      navigate("/login");
+      navigate(`/${locale}/login`);
     },
   });
 
