@@ -180,6 +180,7 @@
     "tabAll": "All"
   },
   "forgot-password-step": {
+    "back": "Back",
     "step-one-title": "Forgot Password",
     "step-one-subtitle": "Enter Your Email",
     "step-two-title": "OTP CODE",

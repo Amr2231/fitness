@@ -4,12 +4,15 @@ import EmailStep from "./email-step";
 import OtpStep from "./otp-step";
 import NewPasswordStep from "./new-password-step";
 import { useTranslations } from "use-intl";
+import { ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export type ForgotPasswordSteps =
   (typeof FORGOT_PASSWORD_STEPS)[keyof typeof FORGOT_PASSWORD_STEPS];
 
 export default function ForgotPasswordFlow() {
   const t = useTranslations("forgot-password-step");
+  const navigate = useNavigate();
 
   const [step, setStep] = useState<ForgotPasswordSteps>(
     FORGOT_PASSWORD_STEPS.EMAIL,
@@ -37,6 +40,16 @@ export default function ForgotPasswordFlow() {
 
   return (
     <div className="flex flex-col justify-center items-center w-full">
+      {/* Back Button */}
+      <button
+        type="button"
+        onClick={() => navigate(-1)}
+        className="flex items-center gap-2 self-start ms-4 mb-4 text-white/80 hover:text-white transition-colors cursor-pointer sm:ms-0"
+      >
+        <ArrowLeft className="h-5 w-5 rtl:rotate-180" />
+        <span className="text-sm font-medium">{t("back")}</span>
+      </button>
+
       <h1 className="text-5xl font-bold mb-4 text-center text-white">
         {steps[step].title}
       </h1>
