@@ -173,7 +173,8 @@
         "title": "Dinner",
         "buttonText": "Read More"
       }
-    }
+    },
+    "tabAll": "All"
   },
   "forgot-password-step": {
     "step-one-title": "Forgot Password",

@@ -173,7 +173,8 @@
         "title": "العشاء",
         "buttonText": "اقرأ المزيد"
       }
-    }
+    },
+    "tabAll": "الكل"
   },
   "forgot-password-step": {
     "step-one-title": "نسيت كلمة المرور",

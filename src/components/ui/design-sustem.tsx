@@ -8,6 +8,7 @@ import { RadioGroup, RadioGroupItem } from "./radio-group";
 import { Field, FieldContent, FieldLabel, FieldTitle } from "./field";
 import { NumberPicker } from "./number-picker";
 import { useForm, Controller } from "react-hook-form";
+import SmartCoach from "./chat-bot/chat-bot";
 
 export default function DesignSystemComponents() {
   const { control, handleSubmit } = useForm({

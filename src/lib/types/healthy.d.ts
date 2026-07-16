@@ -3,4 +3,5 @@ export type HealthyCard = {
   title: string;
   buttonText: string;
   index: number;
+  category: "breakfast" | "lunch" | "dinner";
 };
