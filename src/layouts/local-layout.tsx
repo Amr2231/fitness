@@ -3,6 +3,7 @@ import { IntlProvider } from "use-intl";
 
 import enMessages from "../messages/en.json";
 import arMessages from "../messages/ar.json";
+import ScrollToTop from "@/components/shared/scroll-to-top";
 
 const messagesMap = {
   en: enMessages,
@@ -24,6 +25,7 @@ export default function LocaleLayout() {
         dir={currentLocale === "ar" ? "rtl" : "ltr"}
         className="min-h-screen bg-background text-foreground"
       >
+        <ScrollToTop />
         <Outlet />
       </div>
     </IntlProvider>
