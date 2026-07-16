@@ -50,7 +50,7 @@ export default function ForgotPasswordFlow() {
         <span className="text-sm font-medium">{t("back")}</span>
       </button>
 
-      <h1 className="text-5xl font-bold mb-4 text-center text-white">
+      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-center text-white">
         {steps[step].title}
       </h1>
       <div className="w-full max-w-121.5 p-10 border border-[#D3D3D3] bg-main/10 backdrop-blur-3xl rounded-[50px] flex flex-col items-center justify-center gap-2">

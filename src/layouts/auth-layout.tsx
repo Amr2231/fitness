@@ -35,8 +35,8 @@ export default function AuthLayout() {
           </aside>
 
           {/* Right / form side */}
-          <main className="w-full md:w-1/2 flex px-6 sm:px-12 py-10 overflow-y-auto">
-            <div className="m-auto w-full flex flex-col items-center">
+          <main className="w-full md:w-1/2 flex items-start justify-center md:items-center px-6 sm:px-12 py-10 overflow-y-auto">
+            <div className="mt-6 w-full flex flex-col items-center md:mt-0">
               <Outlet />
             </div>
           </main>

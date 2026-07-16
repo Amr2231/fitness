@@ -59,7 +59,7 @@ export default function EmailStep({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col gap-6 w-96 items-center"
+        className="flex w-full flex-col gap-6 items-center"
       >
         {/* Email */}
         <FormField
@@ -73,7 +73,7 @@ export default function EmailStep({
                   type="email"
                   placeholder={t("email")}
                   icon={<Mail className="h-5 w-5 text-gray-400" />} // for email icon
-                  className="h-12 rounded-2xl w-80"
+                  className="h-12 rounded-2xl w-full"
                 />
               </FormControl>
               {/* show error message */}
@@ -86,7 +86,7 @@ export default function EmailStep({
         {/* submit button */}
         <Button
           disabled={isPending || form.formState.isSubmitting}
-          className="w-80"
+          className="w-full"
         >
           {t("sent-otp")}
         </Button>
