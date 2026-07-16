@@ -1,11 +1,24 @@
 import { useTranslations } from "use-intl";
+import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ScrollingTicker from "@/components/shared/scrolling-ticker";
 import arrow from "@/assets/images/arrow.png";
 import imgBanner from "@/assets/images/Theo Vance.png";
+import { useAuthStatus } from "@/lib/hooks/use-auth-status";
 
 export default function HeroBanner() {
   const t = useTranslations("Hero-banner");
+  const navigate = useNavigate();
+  const { locale } = useParams();
+  const isAuthenticated = useAuthStatus();
+
+  const handleGetStarted = () => {
+    navigate(`/${locale}/${isAuthenticated ? "classes" : "register"}`);
+  };
+
+  const handleExploreMore = () => {
+    navigate(`/${locale}/classes`);
+  };
 
   return (
     <div className="overflow-hidden bg-linear-to-br from-white/10 via-[#abb1af] to-[#abb1af] dark:from-[#242424]/90 dark:via-[#242424]/80 dark:to-[#242424]/60 ">
@@ -55,8 +68,16 @@ export default function HeroBanner() {
           </div>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6 lg:mt-16 lg:gap-10">
-            <div className="flex flex-row px-0 ltr:flex-row rtl:flex-row-reverse sm:px-2 lg:px-5">
-              <Button variant="default">{t("get-started")}</Button>
+            <div
+              onClick={handleGetStarted}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === "Enter" && handleGetStarted()}
+              className="flex cursor-pointer flex-row px-0 ltr:flex-row rtl:flex-row-reverse sm:px-2 lg:px-5"
+            >
+              <Button type="button" variant="default" onClick={handleGetStarted}>
+                {t("get-started")}
+              </Button>
               <img
                 src={arrow}
                 alt="img-button"
@@ -64,9 +85,17 @@ export default function HeroBanner() {
               />
             </div>
 
-            <div className="flex flex-row ltr:flex-row rtl:flex-row-reverse">
+            <div
+              onClick={handleExploreMore}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === "Enter" && handleExploreMore()}
+              className="flex cursor-pointer flex-row ltr:flex-row rtl:flex-row-reverse"
+            >
               <Button
+                type="button"
                 variant="default"
+                onClick={handleExploreMore}
                 className="border border-orange-600 bg-transparent text-orange-600 hover:text-white "
               >
                 {t("explore-more")}

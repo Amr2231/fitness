@@ -2,6 +2,7 @@ import { Outlet, useParams } from "react-router-dom";
 import logo from "@/assets/images/fit.png";
 import authLogo from "@/assets/images/auth.png";
 import heroBg from "@/assets/images/hero.png";
+import LanguageSwitcher from "@/components/layout/navbar/language-switcher";
 
 export default function AuthLayout() {
   const { locale } = useParams();
@@ -17,6 +18,11 @@ export default function AuthLayout() {
         style={{ backgroundImage: `url(${heroBg})` }}
       />
       <div className="absolute inset-0 bg-main/60" />
+
+      {/* Language switcher (login / register / forgot-password) */}
+      <div className="absolute top-4 z-20 ltr:right-4 rtl:left-4">
+        <LanguageSwitcher />
+      </div>
 
       {/* Content */}
       <div className="relative flex h-full flex-col">

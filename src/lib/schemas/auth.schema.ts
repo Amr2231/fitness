@@ -74,11 +74,11 @@ export const createLoginSchema = (
   z.object({
     email: z
       .string()
-      .min(1, { message: t("Login.validation.email.required") })
-      .email({ message: t("Login.validation.email.invalid") }),
+      .min(1, { message: t("validation.email.required") })
+      .email({ message: t("validation.email.invalid") }),
     password: z
       .string()
-      .min(1, { message: t("Login.validation.password.required") }),
+      .min(1, { message: t("validation.password.required") }),
   });
 
 // Type inference

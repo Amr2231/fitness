@@ -1,5 +1,6 @@
 import axios, { AxiosError } from "axios";
 import { type RegisterSchema } from "@/lib/schemas/auth.schema";
+import { notifyAuthChanged } from "@/lib/hooks/use-auth-status";
 
 export const registerUser = async (data: RegisterSchema) => {
   try {
@@ -9,6 +10,7 @@ export const registerUser = async (data: RegisterSchema) => {
     );
 
     localStorage.setItem("token", response.data.token);
+    notifyAuthChanged();
     return response.data;
   } catch (error) {
     const axiosError = error as AxiosError<ApiErrorResponse>;

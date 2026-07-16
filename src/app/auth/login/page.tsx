@@ -49,9 +49,9 @@ export default function Login() {
     <FormProvider {...form}>
       <div className="flex flex-col justify-center items-center w-full">
         {/* Header */}
-        <header className="flex flex-col items-center gap-1 mb-6">
-          <span className="text-lg text-white">{t("hey-there")}</span>
-          <h1 className="text-5xl font-extrabold text-center text-white ">
+        <header className="flex flex-col items-center gap-1 mb-6 px-4 text-center">
+          <span className="text-base sm:text-lg text-white">{t("hey-there")}</span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center text-white">
             {t("welcome-back")}
           </h1>
         </header>
@@ -59,7 +59,7 @@ export default function Login() {
         {/* Card */}
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="w-full max-w-121.5 flex flex-col gap-3 rounded-[50px] border border-[#D3D3D3] bg-main/10 backdrop-blur-3xl p-10"
+          className="w-full max-w-121.5 flex flex-col gap-3 rounded-[32px] sm:rounded-[50px] border border-[#D3D3D3] bg-main/10 backdrop-blur-3xl p-6 sm:p-10"
         >
           <h2 className="text-xl font-bold text-center text-white">
             {t("title")}

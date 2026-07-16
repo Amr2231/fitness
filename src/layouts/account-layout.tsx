@@ -4,6 +4,7 @@ import enMessages from "../messages/en.json";
 import arMessages from "../messages/ar.json";
 import Navbar from "@/components/layout/navbar";
 import ChatBoot from "@/components/layout/chat-bot";
+import accountBackground from "@/assets/images/account-background.png";
 
 const messagesMap: Record<string, any> = {
   ar: arMessages,
@@ -19,20 +20,29 @@ export default function AccountLayout() {
 
   return (
     <IntlProvider messages={messagesMap[locale]} locale={locale}>
-      <div className="relative min-h-screen">
+      <div className="relative min-h-screen bg-transparent">
         {/* Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="fixed inset-0 z-0 bg-cover bg-center scale-105"
           style={{
-            backgroundImage: "url('/assets/images/account-background.png')",
+            backgroundImage: `url(${accountBackground})`,
           }}
         />
 
-        {/* Blur Overlay */}
+        {/* Blur Overlay - lets the photo's tones show through instead of washing it flat */}
         <div
-          className="absolute inset-0  backdrop-blur-[86px]
-    bg-[#FFFFFF99]
-    dark:bg-[#24242499]"
+          className="fixed inset-0 z-0 backdrop-blur-[60px]
+    bg-white/25
+    dark:bg-[#16171d]/60"
+        />
+
+        {/* Brand glow for a bit of character */}
+        <div
+          className="fixed inset-0 z-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle at 15% 10%, rgba(255,65,0,0.16), transparent 55%), radial-gradient(circle at 85% 90%, rgba(255,65,0,0.12), transparent 50%)",
+          }}
         />
 
         {/* Content */}

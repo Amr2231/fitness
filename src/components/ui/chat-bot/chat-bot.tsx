@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { useTranslations } from "use-intl";
-import { AlignLeft } from "lucide-react";
+import { AlignLeft, X } from "lucide-react";
 import ChatToggleButton from "./module-button";
 import ChatMessage from "./message";
 import ChatInput from "./chat-input";
@@ -123,33 +123,46 @@ export default function SmartCoach() {
       <div
         ref={modalRef}
         className={cn(
-          "bg-chat bg-position-[70%_center] bg-cover fixed bottom-0 right-20 z-50 w-93.75 h-188.25 flex flex-col overflow-hidden border-2 border-primary rounded-3xl transition-all duration-500 origin-bottom-right",
+          "bg-chat bg-position-[70%_center] bg-cover fixed z-50 flex flex-col overflow-hidden border-primary transition-all duration-500 origin-bottom-right",
+          // mobile: full-height sheet, no rounding, no float
+          "inset-0 border-0 rounded-none",
+          // tablet/desktop: floating card anchored bottom-right
+          "sm:inset-auto sm:bottom-6 sm:right-6 sm:w-93.75 sm:h-[min(47rem,85vh)] sm:max-h-[85vh] sm:border-2 sm:rounded-3xl sm:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)]",
           isOpen
             ? "scale-100 opacity-100"
             : "scale-0 opacity-0 pointer-events-none",
         )}
       >
-        {/*  blur */}
-        <div className="absolute inset-0 backdrop-blur-xs bg-primary/1 -z-10" />
+        {/* frosted glass overlay */}
+        <div className="absolute inset-0 backdrop-blur-xl bg-black/55 -z-10" />
 
-        <div className="flex justify-between items-center px-8 pt-10 pb-4">
+        <div className="flex justify-between items-center px-6 sm:px-8 pt-[max(1.5rem,env(safe-area-inset-top))] sm:pt-10 pb-4 shrink-0">
           <h2 className="text-white text-xl font-extrabold tracking-tight">
             {t("header")}
           </h2>
-          <button
-            onClick={handleMenuToggle}
-            aria-label={t("menuLabel")}
-            className="text-primary p-1 hover:bg-white/5 rounded-lg transition-colors"
-          >
-            <AlignLeft className="rotate-x-180" size={28} />
-          </button>
+          <div className="flex items-center gap-1">
+            <button
+              onClick={handleMenuToggle}
+              aria-label={t("menuLabel")}
+              className="text-primary p-1 hover:bg-white/5 rounded-lg transition-colors"
+            >
+              <AlignLeft className="rotate-x-180" size={24} />
+            </button>
+            <button
+              onClick={handleToggle}
+              aria-label={t("closeButton")}
+              className="text-white/70 hover:text-white p-1 hover:bg-white/5 rounded-lg transition-colors"
+            >
+              <X size={24} />
+            </button>
+          </div>
         </div>
 
         {/* Previous Conversations Menu - Positioned at top-left */}
         {showPreviousConversations && (
           <>
             <div
-              className="absolute inset-0 z-10 bg-black/50 rounded-3xl cursor-pointer"
+              className="absolute inset-0 z-10 bg-black/50 rounded-none sm:rounded-3xl cursor-pointer"
               onClick={handleMenuToggle}
             />
             {/* Menu Container */}
@@ -163,7 +176,7 @@ export default function SmartCoach() {
         )}
 
         {/* Messages Area */}
-        <div className="flex-1 overflow-y-auto px-6 py-4 flex flex-col gap-5 scroll-bar-hidden ">
+        <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 py-4 flex flex-col gap-5 scroll-bar-hidden ">
           {/* Display all messages with memoization for performance */}
           {messages.map((msg) => (
             <ChatMessage key={msg.id} role={msg.role} text={msg.text} />
@@ -181,14 +194,16 @@ export default function SmartCoach() {
         </div>
 
         {/* Input Component */}
-        <ChatInput
-          ref={inputRef}
-          value={input}
-          onChange={handleInputChange}
-          onSend={handleSend}
-          disabled={isLoading}
-          placeholder={t("placeholder")}
-        />
+        <div className="shrink-0 px-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] sm:pb-2">
+          <ChatInput
+            ref={inputRef}
+            value={input}
+            onChange={handleInputChange}
+            onSend={handleSend}
+            disabled={isLoading}
+            placeholder={t("placeholder")}
+          />
+        </div>
       </div>
     </div>
   );

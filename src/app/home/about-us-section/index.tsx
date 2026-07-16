@@ -1,4 +1,5 @@
 import { useTranslations } from "use-intl";
+import { useNavigate, useParams } from "react-router-dom";
 import ImagesShow from "./images-show";
 import InfoSection from "./info-section";
 import { Button } from "@/components/ui/button";
@@ -6,10 +7,18 @@ import arrow from "@/assets/images/arrow.png";
 import ourStoryAsset from "@/assets/images/about_us.png";
 import SectionTitle from "@/components/shared/section-title";
 import SubSectionTitle from "@/components/shared/sub-section-title";
+import { useAuthStatus } from "@/lib/hooks/use-auth-status";
 
 export default function AboutUs() {
   // translations
   const t = useTranslations("about");
+  const navigate = useNavigate();
+  const { locale } = useParams();
+  const isAuthenticated = useAuthStatus();
+
+  const handleGetStarted = () => {
+    navigate(`/${locale}/${isAuthenticated ? "classes" : "register"}`);
+  };
 
   return (
     <section className="flex justify-center py-10 bg-white/95 dark:bg-main">
@@ -51,8 +60,16 @@ export default function AboutUs() {
               description={t("info-four-description")}
             />
           </div>
-          <div className="flex px-0">
-            <Button variant="default">{t("get-started")}</Button>
+          <div
+            onClick={handleGetStarted}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === "Enter" && handleGetStarted()}
+            className="flex cursor-pointer px-0"
+          >
+            <Button type="button" variant="default" onClick={handleGetStarted}>
+              {t("get-started")}
+            </Button>
             <img
               src={arrow}
               alt="img-button"

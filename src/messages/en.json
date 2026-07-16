@@ -45,7 +45,10 @@
       "password": {
         "required": "Password is required"
       }
-    }
+    },
+    "login-success": "Logged in successfully",
+    "invalid-credentials": "Incorrect email or password. Please try again.",
+    "login-failed": "Something went wrong. Please try again."
   },
   "Register": {
     "create-account": "Create an account",
@@ -219,7 +222,8 @@
     "classes": "Classes",
     "healthy": "Healthy",
     "login": "Login",
-    "sign up": "Sign up"
+    "sign up": "Sign up",
+    "account": "My Account"
   },
   "Hero-banner": {
     "your body can": "Your body can",
@@ -288,7 +292,30 @@
     "level": "Level",
     "weight": "Weight",
     "dark": "dark",
-    "light": "light"
+    "light": "light",
+    "change-password-desc": "Enter a new password for your account. You will use it the next time you sign in.",
+    "missing-email": "We could not find your email, please try again later.",
+    "password-updated": "Your password has been updated successfully.",
+    "saving": "Saving...",
+    "save-changes": "Save changes",
+    "security-desc": "How we keep your account safe.",
+    "security-content": [
+      "Your account is protected with a securely hashed password, we never store your password in plain text.",
+      "Always use a strong, unique password and avoid sharing your login details with anyone.",
+      "If you notice any suspicious activity on your account, change your password immediately from this page."
+    ],
+    "privacy-desc": "How we handle your data.",
+    "privacy-content": [
+      "We only collect the information needed to personalize your fitness plan, such as your goal, weight, and activity level.",
+      "Your data is never sold to third parties.",
+      "You can request a copy or deletion of your data at any time by contacting our support team."
+    ],
+    "help-desc": "Need a hand? Start here.",
+    "help-content": [
+      "Use the Smart Coach chat button in the corner of the screen for quick answers about workouts and nutrition.",
+      "For billing or account issues, reach out to support@superfitness.app.",
+      "Check the About page for more information on how Super Fitness works."
+    ]
   },
   "meal-details": {
     "title": "Healthy",

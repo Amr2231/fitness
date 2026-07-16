@@ -2,7 +2,6 @@
 
 import Card from "@/components/shared/card";
 import SectionTitle from "@/components/shared/section-title";
-import ScrollingTicker from "@/components/shared/scrolling-ticker";
 import { useTranslations } from "use-intl";
 import { HealthyCards } from "./healthy-cards";
 import { Link, useParams } from "react-router-dom";
@@ -82,11 +81,6 @@ export default function HealthySection() {
             />
           </Link>
         ))}
-      </div>
-
-      {/* Ticker */}
-      <div className="relative -mx-6 md:-mx-16 mt-10">
-        <ScrollingTicker />
       </div>
     </section>
   );

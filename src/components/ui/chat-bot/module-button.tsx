@@ -20,34 +20,27 @@ const ChatToggleButton = memo(
     return (
       <div
         className={cn(
-          "fixed z-60 transition-all duration-500 flex flex-col items-center justify-end gap-2",
-          isOpen ? "bottom-189 right-46" : "bottom-8 right-8"
+          "fixed z-60 bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 sm:bottom-8 sm:right-8 transition-all duration-500 flex flex-col items-center justify-end gap-2 origin-bottom-right",
+          isOpen
+            ? "scale-0 opacity-0 pointer-events-none"
+            : "scale-100 opacity-100"
         )}
       >
-        <div
-          className={`relative z-10  -mb-2 transition-all duration-1000 ${
-            isOpen
-              ? "translate-2"
-              : "drop-shadow-[0_10px_30px_var(--color-primary)]"
-          }`}
-        >
+        <div className="relative z-10 -mb-2 transition-all duration-500 drop-shadow-[0_10px_30px_var(--color-primary)]">
           <img
             src={botImage}
             alt="Bot"
-            className="transition-all duration-500 object-contain w-24"
+            className="transition-all duration-500 object-contain w-16 sm:w-24"
           />
         </div>
 
         <Button
           onClick={onClick}
-          className={cn(
-            `relative z-20 font-bold px-10 rounded-full 
-          transition-all active:scale-95  tracking-wide
-          filter `,
-            !isOpen ? `drop-shadow-[0_0px_20px_var(--color-primary)]` : ""
-          )}
+          className="relative z-20 font-bold px-6 sm:px-10 rounded-full
+          transition-all active:scale-95 tracking-wide
+          filter drop-shadow-[0_0px_20px_var(--color-primary)]"
         >
-          {isOpen ? t("closeButton") : t("openButton")}
+          {t("openButton")}
         </Button>
       </div>
     );

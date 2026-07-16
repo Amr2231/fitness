@@ -33,15 +33,25 @@ export default function MealDetailsPage() {
   return (
     <section>
       {/* Meal Image , Title , description and info list */}
-      <div className="bg-cover h-134 p-8 flex items-end" style={{ backgroundImage: `url(${meal?.strMealThumb})` }}>
-        <div className="space-y-4">
-          <h3 className="text-center text-5xl font-medium min-h-16">{meal?.strMeal}</h3>
-          <p className="w-5/6 text-lg max-h-36 overflow-hidden">{meal?.strInstructions}</p>
+      <div
+        className="bg-cover bg-center rounded-2xl sm:rounded-none h-auto min-h-64 sm:min-h-96 lg:h-134 p-4 sm:p-6 lg:p-8 flex items-end"
+        style={{ backgroundImage: `url(${meal?.strMealThumb})` }}
+      >
+        <div className="space-y-3 sm:space-y-4 w-full">
+          <h3 className="text-center text-2xl sm:text-3xl lg:text-5xl font-medium sm:min-h-16 text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.6)]">
+            {meal?.strMeal}
+          </h3>
+          <p className="w-full sm:w-5/6 text-sm sm:text-base lg:text-lg max-h-24 sm:max-h-36 overflow-hidden text-white/90 [text-shadow:0_1px_4px_rgba(0,0,0,0.6)]">
+            {meal?.strInstructions}
+          </p>
           {/* Nutritional Info */}
-          <ul className="flex justify-between">
+          <ul className="flex flex-wrap justify-center sm:justify-between gap-2">
             {infoList.map((item) => (
-              <li key={item.id} className="border border-[#D3D3D3] rounded-[20px] p-2 text-center">
-                <p>{item.value}</p>
+              <li
+                key={item.id}
+                className="border border-[#D3D3D3] bg-black/30 backdrop-blur-sm rounded-[20px] p-2 text-center text-sm sm:text-base"
+              >
+                <p className="text-white">{item.value}</p>
                 <p className="font-bold text-primary">{item.name}</p>
               </li>
             ))}
@@ -49,13 +59,15 @@ export default function MealDetailsPage() {
         </div>
       </div>
       {/* ingredients title */}
-      <h5 className="text-3xl font-medium h-11 mt-6 mb-4">{t("ingredients")}</h5>
+      <h5 className="text-xl sm:text-2xl lg:text-3xl font-medium mt-6 mb-4">
+        {t("ingredients")}
+      </h5>
       {/* ingredients list */}
-      <ul className="py-4 px-2 grid grid-cols-2 gap-x-[20%] gap-y-2.5">
+      <ul className="py-4 px-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 lg:gap-x-[20%] gap-y-2.5">
         {ingredients.map((item, index) => (
-          <li key={index} className="col-span-1 flex justify-between border-b border-[#2D2D2D]">
+          <li key={index} className="col-span-1 flex justify-between gap-4 border-b border-[#2D2D2D] pb-1">
             <h6 className="font-semibold">{item.ingredient}</h6>
-            <p className="text-primary">{item.measure}</p>
+            <p className="text-primary shrink-0">{item.measure}</p>
           </li>
         ))}
       </ul>

@@ -19,8 +19,10 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 
+// icons
+import { ArrowRight } from "lucide-react";
+
 // images
-import vector from "../../../assets/images/Vector.png";
 import dumble from "../../../assets/images/dumble.png";
 import { useTranslations, useLocale } from "use-intl";
 import { useNavigate } from "react-router-dom";
@@ -69,40 +71,46 @@ export default function Healthy() {
     loadMeals();
   }, [selectedCategory]);
 
-  return (
-    <div className="w-full mt-48 bg-gradient-to-b from-main/20 via-main/5 to-main/90">
-      {/* healthy LAYER */}
-      <h2
-        className={`relative inline-block text-center -z-1 text-6xl font-bold bg-gradient-to-b from-white to-[#232425] bg-clip-text text-transparent ${
-          locale === "ar"
-            ? "right-1/2 translate-x-1/2 bottom-16"
-            : "left-1/2 -translate-x-1/2 bottom-12"
-        }`}
-      >
-        {t("title")}
-      </h2>
+  // Only ever show up to 6 meal cards (2 rows x 3 cols) per design
+  const visibleMeals = meals.slice(0, 6);
 
-      {/* header */}
-      <div>
-        <div className="flex justify-center items-center max-w-5xl mx-auto px-4 gap-2 mb-4">
-          <img src={dumble} alt="img-dumble" className="w-9" />
-          <h4 className="text-orange-600">{t("small-title")}</h4>
+  return (
+    <div className="relative w-full mt-48 overflow-hidden bg-background text-foreground">
+      {/* subtle radial glow behind the header, purely decorative */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-[radial-gradient(ellipse_at_top,_rgba(255,65,0,0.12),_transparent_65%)]" />
+
+      <div className="relative px-4 pb-20 pt-4 sm:px-6 lg:px-8">
+        {/* watermark title */}
+        <h2
+          className={`pointer-events-none relative -z-0 hidden text-center text-6xl font-bold text-transparent [-webkit-text-stroke:1px_rgba(0,0,0,0.06)] dark:[-webkit-text-stroke:1px_rgba(255,255,255,0.08)] sm:block ${
+            locale === "ar" ? "-mb-6" : "-mb-8"
+          }`}
+        >
+          {t("title")}
+        </h2>
+
+        {/* header */}
+        <div className="relative">
+          <div className="mb-4 flex items-center justify-center gap-2">
+            <img src={dumble} alt="img-dumble" className="w-7 sm:w-9" />
+            <h4 className="text-sm font-semibold uppercase tracking-wide text-orange-500 sm:text-base">
+              {t("small-title")}
+            </h4>
+          </div>
+
+          <h2 className="mx-auto mb-10 max-w-3xl text-center text-2xl font-bold uppercase leading-tight text-foreground sm:text-3xl sm:leading-snug lg:text-4xl">
+            <span className="block">{t("first-line")}</span>
+            <span className="block">
+              {t("customized")}{" "}
+              <span className="text-orange-500">{t("special-meal")}</span>{" "}
+              {t("for-you")}
+            </span>
+          </h2>
         </div>
 
-        <h2 className="text-4xl text-center font-bold uppercase leading-16 mb-10">
-          <p> {t("first-line")} </p>
-          <p>
-            {t("customized")}
-            <span className="text-orange-600"> {t("special-meal")} </span>
-            {t("for-you")}
-          </p>
-        </h2>
-      </div>
-
-      <div className="p-6">
         <Carousel
           setApi={setApi}
-          className="w-full lg:w-1/2 mx-auto"
+          className="mx-auto w-full lg:w-2/3"
           opts={{
             direction: locale === "en" ? "ltr" : "rtl",
           }}
@@ -111,15 +119,15 @@ export default function Healthy() {
             {chunkedCategories.map((group, index) => (
               <CarouselItem key={index}>
                 {/* categories */}
-                <div className="mb-8 flex justify-center gap-6">
+                <div className="mb-10 flex flex-wrap justify-center gap-2 sm:gap-3">
                   {group.map((cat) => (
                     <button
                       key={cat.idCategory}
                       onClick={() => setSelectedCategory(cat.strCategory)}
-                      className={`text-lg font-medium transition ${
+                      className={`rounded-full px-4 py-1.5 text-sm font-semibold capitalize transition sm:text-base ${
                         selectedCategory === cat.strCategory
-                          ? "text-orange-600"
-                          : "text-gray-500"
+                          ? "bg-orange-600 text-white shadow-lg shadow-orange-600/30"
+                          : "text-zinc-500 hover:text-foreground dark:text-gray-400 dark:hover:text-white"
                       }`}
                     >
                       {cat.strCategory}
@@ -128,39 +136,37 @@ export default function Healthy() {
                 </div>
 
                 {/* meals */}
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {meals.map((meal) => (
-                    <div key={meal.idMeal} className="border p-1">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  {visibleMeals.map((meal) => (
+                    <div
+                      key={meal.idMeal}
+                      className="group relative aspect-[4/3] overflow-hidden rounded-2xl"
+                    >
                       <img
                         src={meal.strMealThumb}
                         alt={meal.strMeal}
-                        className="w-full rounded-md object-cover"
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
 
-                      <div className="relative bg-gradient-to-r from-[#171E2E00] via-[#171E2E80] to-[#171E2ECC] backdrop-blur-[3.75rem] p-4">
-                        <h3 className="mb-2 text-main dark:text-zinc-100 text-xl font-bold uppercase tracking-[0.14rem] leading-8">
+                      {/* dark gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+
+                      <div className="absolute inset-x-0 bottom-0 p-4">
+                        <h3 className="mb-2 truncate text-lg font-bold uppercase tracking-wide text-white">
                           {meal.strMeal}
                         </h3>
 
-                        <div className="flex">
-                          <button
-                            onClick={() =>
-                              navigate(
-                                `/${locale}/healthy/meals/${meal.idMeal}`,
-                              )
-                            }
-                            className="text-orange-600"
-                          >
-                            Explore
-                          </button>
-                          <div className="p-2 w-6 h-6 ms-2 bg-orange-600 rounded-full">
-                            <img
-                              src={vector}
-                              alt="img-button"
-                              className="w-full h-full"
-                            />
-                          </div>
-                        </div>
+                        <button
+                          onClick={() =>
+                            navigate(`/${locale}/healthy/meals/${meal.idMeal}`)
+                          }
+                          className="flex items-center gap-2 text-sm font-semibold text-orange-500 cursor-pointer"
+                        >
+                          <span>Explore</span>
+                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-orange-600 text-black">
+                            <ArrowRight size={12} />
+                          </span>
+                        </button>
                       </div>
                     </div>
                   ))}

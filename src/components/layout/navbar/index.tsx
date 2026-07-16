@@ -9,9 +9,11 @@ import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useTranslations } from "use-intl";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/layout/navbar/theme-toggle";
+import LanguageSwitcher from "@/components/layout/navbar/language-switcher";
 import logo from "../../../assets/images/fit 1.png";
-import { Menu } from "lucide-react";
+import { Menu, User } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useAuthStatus } from "@/lib/hooks/use-auth-status";
 
 export default function Navbar({ account }: { account?: boolean }) {
   // Router
@@ -24,6 +26,9 @@ export default function Navbar({ account }: { account?: boolean }) {
 
   // Translations
   const t = useTranslations("Navbar");
+
+  // Auth status (token in localStorage)
+  const isAuthenticated = useAuthStatus();
 
   // links data
   const links = [
@@ -77,24 +82,47 @@ export default function Navbar({ account }: { account?: boolean }) {
 
           {/*  Buttons */}
           <div className="flex items-center gap-6">
-            <Button onClick={() => navigate(`/${locale}/login`)}>
-              {t("login")}
-            </Button>
+            {isAuthenticated ? (
+              <button
+                onClick={() => handleNavigate(`/${locale}/account`)}
+                aria-label={t("account")}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-600 text-white transition hover:bg-orange-700"
+              >
+                <User size={20} />
+              </button>
+            ) : (
+              <>
+                <Button onClick={() => navigate(`/${locale}/login`)}>
+                  {t("login")}
+                </Button>
 
-            <Button
-              variant="outline"
-              className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white"
-              onClick={() => navigate(`/${locale}/register`)}
-            >
-              {t("sign up")}
-            </Button>
+                <Button
+                  variant="outline"
+                  className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white"
+                  onClick={() => navigate(`/${locale}/register`)}
+                >
+                  {t("sign up")}
+                </Button>
+              </>
+            )}
 
+            <LanguageSwitcher />
             <ThemeToggle />
           </div>
         </div>
 
         {/* Mobile  */}
-        <div className="lg:hidden shrink-0">
+        <div className="lg:hidden flex items-center gap-2 shrink-0">
+          <LanguageSwitcher />
+          {isAuthenticated && (
+            <button
+              onClick={() => handleNavigate(`/${locale}/account`)}
+              aria-label={t("account")}
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-orange-600 text-white transition hover:bg-orange-700"
+            >
+              <User size={18} />
+            </button>
+          )}
           <Sheet>
             <SheetTrigger asChild>
               <button className="bg-orange-600 rounded-full p-2 flex items-center justify-center">
@@ -125,20 +153,31 @@ export default function Navbar({ account }: { account?: boolean }) {
 
               {/* Buttons */}
               <div className="flex flex-col gap-3 mt-6 w-full">
-                <Button
-                  onClick={() => navigate(`/${locale}/login`)}
-                  className="w-full text-sm sm:text-base"
-                >
-                  {t("login")}
-                </Button>
+                {isAuthenticated ? (
+                  <Button
+                    onClick={() => handleNavigate(`/${locale}/account`)}
+                    className="w-full text-sm sm:text-base"
+                  >
+                    {t("account")}
+                  </Button>
+                ) : (
+                  <>
+                    <Button
+                      onClick={() => navigate(`/${locale}/login`)}
+                      className="w-full text-sm sm:text-base"
+                    >
+                      {t("login")}
+                    </Button>
 
-                <Button
-                  variant="outline"
-                  className="w-full border-orange-600 text-orange-600 text-sm sm:text-base"
-                  onClick={() => navigate(`/${locale}/register`)}
-                >
-                  {t("sign up")}
-                </Button>
+                    <Button
+                      variant="outline"
+                      className="w-full border-orange-600 text-orange-600 text-sm sm:text-base"
+                      onClick={() => navigate(`/${locale}/register`)}
+                    >
+                      {t("sign up")}
+                    </Button>
+                  </>
+                )}
               </div>
 
               <div className="mt-auto">
