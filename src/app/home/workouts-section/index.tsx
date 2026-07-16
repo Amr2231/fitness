@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useParams } from "react-router-dom";
 import MuscleTabs from "./components/muscle-tabs";
 import { useTranslations } from "use-intl";
 import { CarouselSkeleton } from "./components/skeletons/carousel-skeleton";
@@ -11,6 +12,7 @@ import MuscleCarousel from "./components/muscle-carousel";
 
 export default function WorkoutSection() {
   const t = useTranslations("home.workouts");
+  const { locale } = useParams();
 
   const [selectedGroup, setSelectedGroup] = useState<string>("");
 
@@ -91,7 +93,11 @@ export default function WorkoutSection() {
           ) : musclesError ? (
             <p className="text-red-500">Failed to load exercises</p>
           ) : (
-            <MuscleCarousel muscles={musclesData?.muscles || []} />
+            <MuscleCarousel
+              muscles={musclesData?.muscles || []}
+              locale={locale}
+              groupId={effectiveSelectedGroup}
+            />
           )}
         </div>
       </div>
