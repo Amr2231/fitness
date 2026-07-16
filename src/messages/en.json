@@ -1,0 +1,329 @@
+{
+  "Chat": {
+    "initialMessage": "Hello, How can I assist you today?",
+    "openButton": "Hey Ask Me",
+    "closeButton": "Tap To Close",
+    "header": "Smart Coach",
+    "placeholder": "Ask Me Anything",
+    "loading": "Smart Coach is thinking...",
+    "errorMessage": "Sorry, something went wrong. Please try again.",
+    "previousConversations": "Previous Conversations",
+    "menuLabel": "Chat menu"
+  },
+  "Index": {
+    "title": "Hello"
+  },
+  "home": {
+    "workouts": {
+      "title": "Transform Your Body with Our <br></br> Dynamic <highlight>Upcoming Workouts</highlight>",
+      "title-text": "Workouts",
+      "title-background": "Fitness Class"
+    }
+  },
+  "AuthLayout": {
+    "login-title": "Login",
+    "register-title": "Register",
+    "forgot-password-title": "Forgot Password",
+    "tagline": "Your body can stand almost anything, it's your mind you have to convince."
+  },
+  "Login": {
+    "hey-there": "Hey There,",
+    "welcome-back": "Welcome Back!",
+    "title": "Login",
+    "email": "Email",
+    "password": "Password",
+    "forgot-password": "Forget Password ?",
+    "login": "Login",
+    "logging-in": "Logging in...",
+    "no-account": "Dont Have An Account Yet ?",
+    "register": "Register",
+    "validation": {
+      "email": {
+        "required": "Email is required",
+        "invalid": "Invalid email address"
+      },
+      "password": {
+        "required": "Password is required"
+      }
+    }
+  },
+  "Register": {
+    "create-account": "Create an account",
+    "firstname": "firstName",
+    "hey-there": "Hey There",
+    "first-name": "First Name",
+    "last-name": "Last Name",
+    "email": "Email",
+    "password": "Password",
+    "confirm-password": "Confirm Password",
+    "next": "Next",
+    "have-account": "Already have an account?",
+    "login": "Login",
+    "how-old-are-you": "How Old Are you ?",
+    "step-header-paragraph": "this helps us create Your personalized plan",
+    "tell-us-about-yourself": "Tell us about yourself",
+    "we-need-to-know-your-gender": "We need to know your gender",
+    "male": "Male",
+    "female": "Female",
+    "what-is-your-goal": "What is your Goal?",
+    "what-is-your-height": "what is your height ?",
+    "level": "your regular physical activity level ?",
+    "finish": "Finish",
+    "what-is-your-weight": "what is your weight ?",
+    "validation": {
+      "firstName": {
+        "required": "First name is required",
+        "tooLong": "First name is too long"
+      },
+      "lastName": {
+        "required": "Last name is required",
+        "tooLong": "Last name is too long"
+      },
+      "email": {
+        "invalid": "Invalid email address"
+      },
+      "password": {
+        "strong": "Password must be at least 8 characters and include uppercase, lowercase, number, and special character"
+      },
+      "rePassword": {
+        "required": "Please confirm your password"
+      },
+      "passwords": {
+        "notMatch": "Passwords do not match"
+      },
+      "gender": {
+        "required": "Gender is required"
+      },
+      "age": {
+        "min": "You should be at least 12 years old",
+        "max": "You should be at most 90 years old"
+      },
+      "weight": {
+        "min": "Weight must be at least 40kg",
+        "max": "Weight must be at most 180kg"
+      },
+      "height": {
+        "min": "Height must be at least 120cm",
+        "max": "Height must be at most 220cm"
+      },
+      "goal": {
+        "required": "Goal is required"
+      },
+      "activityLevel": {
+        "required": "Activity level is required"
+      }
+    },
+    "rookie": "Rookie",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "true-beast": "True beast",
+    "goal": {
+      "gain-weight": "Gain weight",
+      "lose-weight": "Lose weight",
+      "get-fitter": "Get fitter",
+      "gain-more-flexible": "Gain more flexible",
+      "learn-the-basic": "Learn the basic"
+    },
+    "forgot-password": "Forget Password ?",
+    "register": "Register",
+    "save": "Save"
+  },
+  "WhyUs": {
+    "title": "Why Us?",
+    "description": {
+      "before": "Elevate Fitness with the ",
+      "highlight": "Best Way",
+      "after": " Possible"
+    },
+    "paragraph": "We offer a fitness journey that's tailored to your goals, supported by professional trainers and a welcoming community. Whether it's weight loss, strength building, or overall wellness, our proven methods.",
+    "items": {
+      "personalized": {
+        "title": "Personalized Fitness Plans",
+        "description": "We tailor every workout to fit your unique goals and fitness level to ensure the Most Progress."
+      },
+      "results": {
+        "title": "Results-Driven Focus",
+        "description": "Everything we do is designed to help you achieve measurable results, whether you're aiming for weight loss."
+      },
+      "support": {
+        "title": "State-Of-The-Art Equipment",
+        "description": "We provide the latest in gym equipment, from cardio machines to free weights, designed to support every type."
+      }
+    }
+  },
+  "HealthySection": {
+    "title": "Healthy Nutritions",
+    "background": "HEALTHY",
+    "description": {
+      "before": "Fuel your fitness journey with customized ",
+      "highlight": "meal plans",
+      "after": " for you"
+    },
+    "cards": {
+      "breakfast": {
+        "title": "Breakfast",
+        "buttonText": "Read More"
+      },
+      "lunch": {
+        "title": "Lunch",
+        "buttonText": "Read More"
+      },
+      "dinner": {
+        "title": "Dinner",
+        "buttonText": "Read More"
+      }
+    }
+  },
+  "forgot-password-step": {
+    "step-one-title": "Forgot Password",
+    "step-one-subtitle": "Enter Your Email",
+    "step-two-title": "OTP CODE",
+    "step-two-subtitle": "Enter the OTP you have received",
+    "step-three-title": "Create New Password",
+    "step-three-subtitle": "Make sure to create a strong password!.",
+    "email": "Email",
+    "sent-otp": "Sent OTP",
+    "email-validation": "Invalid email address",
+    "otp-required": "OTP is required",
+    "confirm": "Confirm",
+    "did-not-receive": "didn’t receive verification code?",
+    "resend": "Resend Code",
+    "resending": "Resending...",
+    "new-password": "New Password",
+    "confirm-password": "Confirm New Password",
+    "password-required": "Password must be at least 8 characters and include uppercase, lowercase, number, and special character",
+    "re-password-required": "Please confirm your password",
+    "re-password-valid": "Passwords do not match",
+    "create-new-password": "Create New Password"
+  },
+  "about": {
+    "title": "About Us",
+    "title-bg": "About Us",
+    "sub-title": "EMPOWERING YOU TO ACHIEVE <span>YOUR FITNESS</span> GOALS",
+    "description": "We believe fitness is more than just a workout—it's a lifestyle. With top-of-the-line facilities, certified trainers, and a supportive community, we're here to inspire and guide you every step of the way.",
+    "info-one-title": "Personal Trainer",
+    "info-one-description": "Achieve your fitness goals with the guidance of our certified trainers.",
+    "info-two-title": "Cardio Programs",
+    "info-two-description": "From steady-state runs to interval sprints, our treadmill programs.",
+    "info-three-title": "Quality Equipment",
+    "info-three-description": "Our gym is equipped with the latest cardio & strength machines.",
+    "info-four-title": "Healthy Nutritions",
+    "info-four-description": "Fuel your fitness journey with customized meal plans for you.",
+    "get-started": "Get Started"
+  },
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "classes": "Classes",
+    "healthy": "Healthy",
+    "login": "Login",
+    "sign up": "Sign up"
+  },
+  "Hero-banner": {
+    "your body can": "Your body can",
+    "stand": "stand",
+    "almost": "almost",
+    "anything": " anything",
+    "first-line": "It's your mind that needs convincing,push past your limits,stay ",
+    "second-line": "committed, and watch as your body transform into powerhouse of",
+    "third-line": "strength and resilience.Start your journey today & truly capable of!",
+    "active-members": "active members",
+    "certified-trainers": "certified trainers",
+    "year-of-experience": "year of experience",
+    "num-years": "+20",
+    "num-trainers": "+12",
+    "num-members": "+1200",
+    "get-started": "Get started",
+    "explore-more": "Explore more"
+  },
+  "chat-boot": {
+    "title": "hey , ask me"
+  },
+  "scrolling-ticker": {
+    "first-line": "Live Classes",
+    "second-line": "Personal Training",
+    "third-line": "Nutrition Guidance"
+  },
+  "workout-page": {
+    "workout-title": "workout",
+    "workout-small-title": "fitness class",
+    "workout-first-line": "Transform Your Body with Our",
+    "workout-second-line": "Dynamic ",
+    "workout-special-workout": "Upcoming Workouts"
+  },
+  "slide-button": {
+    "buttton-title": "Explore"
+  },
+  "meal-page": {
+    "title": "HEALTHY",
+    "small-title": "Healthy Nutritions",
+    "first-line": "Fuel your fitness journey with",
+    "customized": "customized",
+    "special-meal": "Meal Plans",
+    "for-you": "for you"
+  },
+  "Footer": {
+    "contact-us": "Contact us",
+    "start-time": "Mon - Fri : 08:00 AM - 10:00 PM",
+    "special-time": "Sat - Sun : 08:00 AM - 09:00 PM",
+    "timing": "our gym timing",
+    "location": "our location",
+    "first-line": "Push harder, go further. Your",
+    "second-line": "fitness journey starts today!"
+  },
+  "account": {
+    "change-password": "Change Password",
+    "select-language": "Select language",
+    "english": "English",
+    "arabic": "Arabic",
+    "mode": "Mode",
+    "security": "Security",
+    "privacy": "Privacy",
+    "help": "Help",
+    "logout": "Logout",
+    "tap-to-change": "Tap to change",
+    "your-goal": "Your Goal",
+    "level": "Level",
+    "weight": "Weight",
+    "dark": "dark",
+    "light": "light"
+  },
+  "meal-details": {
+    "title": "Healthy",
+    "energy": "Energy",
+    "protein": "Protein",
+    "carbs": "Carbs",
+    "fat": "Fat",
+    "ingredients": "ingredients "
+  },
+  "classes-home": {
+    "workouts": {
+      "titleLineOne": "Transform Your Body with Our",
+      "titleLineTwo": "Dynamic Upcoming Workouts",
+      "title-text": "Workouts",
+      "title-background": "Fitness Class"
+    }
+  },
+  "ExerciseDetails": {
+    "preview": {
+      "movement": "Movement",
+      "posture": "Posture",
+      "laterality": "Laterality",
+      "general": "General",
+      "playVideo": "Play {exercise}"
+    },
+    "content": {
+      "chooseLevel": "Choose a level to display exercises.",
+      "noExercises": "No exercises found for this level.",
+      "recommendationTitle": "Recommendation For You"
+    },
+    "sidebar": {
+      "noExercises": "No exercises found for this level.",
+      "bodyweight": "Bodyweight",
+      "exercise": "Exercise",
+      "general": "General",
+      "watchOnYoutube": "Watch {exercise} on YouTube"
+    }
+  }
+}

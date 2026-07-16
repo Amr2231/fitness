@@ -1,0 +1,117 @@
+@import "tailwindcss";
+@import "@fontsource/baloo-thambi-2/index.css";
+@import "@fontsource/rubik/index.css";
+
+@keyframes marquee-ltr {
+  from {
+    transform: translateX(120%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.animate-marquee-ltr {
+  animation: marquee-ltr 15s linear infinite;
+}
+
+.animate-marquee-rtl {
+  animation: marquee-rtl 15s linear infinite;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* enable dark mode variant */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* light theme (default) */
+@theme {
+  --font-rubik: "Rubik", sans-serif;
+  --font-baloo: "Baloo Thambi 2", system-ui;
+
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --color-primary: #ff4100;
+  --color-main: #242424;
+}
+
+/* dark theme (controlled by next-themes) */
+.dark {
+  --color-background: #16171d;
+  --color-foreground: #f3f4f6;
+}
+
+/* Auth screens (login/register/forgot-password) always sit on a dark
+   blurred background, independent of the light/dark theme toggle.
+   Overriding --color-foreground here makes every text-foreground /
+   border-foreground utility (used inside shared Input, Button, Form
+   components) render white within this scope, without touching those
+   shared components. */
+.auth-scope {
+  --color-foreground: #ffffff;
+}
+
+/* base styles */
+@layer base {
+  body {
+    @apply bg-background text-foreground font-rubik;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bg-chat {
+    background-image: url('/public/bot-bg.jpg');
+    background-size: cover;
+    background-position: 70% center;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #242424f2;
+    --color-foreground: #f3f4f6;
+  }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  height: 6px;
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2d2d2d;
+  border-radius: 10px;
+}
